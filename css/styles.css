@@ -208,8 +208,9 @@ body {
 
 /* Gambar Media dan Sub */
 .media-img, .sub-img {
-    max-width: 300px;
-    height: 150px;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
   border-radius: 12px;
   object-fit: cover;
   margin-bottom: 15px;
@@ -222,8 +223,9 @@ body {
 }
 
 .media-img-profile {
-  width: 180px;
-  height: 180px;
+  width: 100%;
+  max-width: 180px;
+  height: auto;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 15px;
@@ -234,7 +236,7 @@ body {
 .main-page-img {
   width: 100%;
   max-width: 350px;
-  height: 180px;
+  height: auto;
   object-fit: cover;
   border-radius: 12px;
   border: 3px solid #FFD700;
@@ -247,6 +249,8 @@ body {
 }
 
 .img-fluid {
+  width: 100%;
+  height: auto;
   border-radius: 8px;
   transition: transform 0.3s ease;
 }
@@ -259,9 +263,10 @@ h2, h5 {
   color: #8B4513;
   font-weight: 600;
 }
+
 a {
   text-decoration: none;
-  color: #8B4513;;
+  color: #8B4513;
 }
 
 p, li {
@@ -370,14 +375,11 @@ footer {
     left: 10px;
   }
 
-  .media-img, .sub-img, .media-img-profile {
-    max-width: 300px;
-    height: 150px;
-  }
-
-  .main-page-img {
-    max-width: 300px;
-    height: 150px;
+  .media-img, .sub-img, .media-img-profile, .main-page-img, .img-fluid {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    object-fit: cover;
   }
 
   .card {
@@ -389,7 +391,7 @@ footer {
   }
 
   h5 {
-    margin-top: -70px;
+    margin-top: 0;
     font-size: 1.2rem;
   }
 
@@ -422,5 +424,12 @@ footer {
 
   .back-button {
     font-size: 1.3rem;
+  }
+
+  .media-img, .sub-img, .media-img-profile, .main-page-img, .img-fluid {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    object-fit: cover;
   }
 }
