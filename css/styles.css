@@ -1,0 +1,236 @@
+/* Reset dan Dasar */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+/* Body untuk Halaman Sampul */
+.cover-body {
+  background-image: url("../img/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #fff;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cover-body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+/* Batik Desain */
+.batik-top {
+  background: url("../img/batik-pattern.jpg") repeat-x;
+  height: 150px;
+  width: 100%;
+  background-size: auto;
+  background-position: center;
+  background-color: #8B4513;
+}
+
+.batik-bottom {
+  background: url("../img/batik-pattern.jpg") repeat-x;
+  height: 150px;
+  width: 100%;
+  background-size: auto;
+  background-position: center;
+  background-color: #5C4033;
+  margin-top: auto;
+}
+
+/* Ikon Baris */
+.icon-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.cover-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+/* Konten Utama */
+.cover-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.cover-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #FFD700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin-bottom: 10px;
+}
+
+.cta {
+  display: inline-flex;
+  padding: 10px 30px;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #8B4513;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.cta:hover {
+  background-color: #A0522D;
+}
+
+.page-header-batik {
+  position: relative;
+  background: url("../img/batik-pattern.jpg") repeat-x;
+  background-size: auto 100%;
+  background-position: center;
+  background-color: #8B4513;
+  padding: 2rem 1rem;
+  border-radius: 15px;
+  margin-bottom: 3rem !important;
+}
+
+.page-header-batik h1 {
+  color: #FFD700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.back-button {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 1.8rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.back-button:hover {
+  color: #FFD700;
+}
+
+
+/* Body untuk Halaman Lain */
+.kamus-body {
+  background-image: url("../img/batik-pattern.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.kamus-body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8); /* Lebih terang untuk anak-anak */
+  z-index: -1;
+}
+
+/* Card Styles */
+.card {
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* Gambar Media dan Sub */
+.media-img, .sub-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #FFD700;
+  transition: transform 0.3s ease;
+}
+
+.media-img:hover, .sub-img:hover {
+  transform: scale(1.05);
+}
+
+/* Gambar Media dan Sub */
+.media-img-profile {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #FFD700;
+  transition: transform 0.3s ease;
+}
+
+.img-fluid {
+  transition: transform 0.3s ease;
+}
+
+.img-fluid:hover {
+  transform: scale(1.05);
+}
+
+h2, h5 {
+  color: #8B4513;
+}
+
+p, li {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .media-img, .sub-img {
+    width: 120px;
+    height: 120px;
+  }
+  .cover-title {
+    font-size: 1.5rem;
+  }
+  .batik-top, .batik-bottom {
+    height: 100px;
+  }
+  .page-header-batik {
+    padding: 1.5rem 0.5rem;
+  }
+  .back-button {
+    font-size: 1.5rem;
+    left: 15px;
+  }
+}
+
+/* Kuis Styles */
+.form-check {
+  margin-bottom: 10px;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 15px;
+  border-radius: 10px;
+}
