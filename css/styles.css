@@ -260,28 +260,34 @@ body {
 }
 
 h2, h5 {
-  color: #8B4513;
+  color: #5C4033; /* Darker brown for better contrast */
   font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 a {
   text-decoration: none;
   color: #8B4513;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #A0522D;
 }
 
 p, li {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: #333;
+  color: #4F4F4F; /* Softer, darker gray for body text */
 }
 
 /* Footer */
 footer {
   background-color: #8B4513;
   color: #FFD700;
-  padding: 15px 0;
+  padding: 20px 0;
   text-align: center;
-  border-top: 3px solid #A0522D;
+  border-top: 4px solid #A0522D;
 }
 
 /* Kuis Styles */
@@ -302,7 +308,7 @@ footer {
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  padding: 25px;
+  padding: 30px;
   transition: transform 0.3s ease;
 }
 
@@ -311,15 +317,16 @@ footer {
 }
 
 .profile-name {
-  font-size: 1.8rem;
-  font-weight: 600;
+  font-size: 2rem;
+  font-weight: 700;
   color: #8B4513;
   margin-bottom: 10px;
 }
 
 .profile-details p {
-  font-size: 1.1rem;
-  margin-bottom: 12px;
+  font-size: 1.15rem;
+  margin-bottom: 15px;
+  color: #4F4F4F;
 }
 
 .profile-details strong {
@@ -346,8 +353,8 @@ footer {
   }
 
   .cover-icon {
-    width: 35px;
-    height: 35px;
+    width: 60px;
+    height: 60px;
   }
 
   .navbar-brand {
@@ -375,10 +382,17 @@ footer {
     left: 10px;
   }
 
-  .media-img, .sub-img, .media-img-profile, .main-page-img, .img-fluid {
+  .media-img, .sub-img, .main-page-img, .img-fluid {
     width: 100%;
-    max-width: none;
+    max-width: 200px;
     height: auto;
+    object-fit: cover;
+  }
+
+  .media-img-profile {
+    width: 150px; /* Set fixed width */
+    height: 150px; /* Set fixed height for perfect circle */
+    border-radius: 50%;
     object-fit: cover;
   }
 
@@ -397,6 +411,14 @@ footer {
 
   p, li {
     font-size: 1rem;
+  }
+
+  .profile-name {
+    font-size: 1.6rem;
+  }
+
+  .profile-details p {
+    font-size: 1.05rem;
   }
 }
 
@@ -426,10 +448,17 @@ footer {
     font-size: 1.3rem;
   }
 
-  .media-img, .sub-img, .media-img-profile, .main-page-img, .img-fluid {
+  .media-img, .sub-img, .main-page-img, .img-fluid {
     width: 100%;
     max-width: none;
     height: auto;
+    object-fit: cover;
+  }
+
+  .media-img-profile {
+    width: 120px; /* Adjust size for smaller screens */
+    height: 120px;
+    border-radius: 50%;
     object-fit: cover;
   }
 }

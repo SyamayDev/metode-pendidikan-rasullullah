@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kuis: Gerhana - Media Pendidikan Rasulullah SAW</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kuis: Gerhana - Media Pendidikan Rasulullah SAW</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -18,11 +18,11 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-      <!-- Batik Header -->
-  <div class="batik-top"></div>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Batik Header -->
+    <div class="batik-top"></div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a href="javascript:history.back()" class="navbar-back-button"
@@ -34,72 +34,27 @@
       </div>
     </nav>
 
-  <div class="container mt-5">
-    <header class="text-center page-header-batik">
-      <h1>Kuis: Tanda-tanda Kebesaran Allah (Gerhana)</h1>
-    </header>
+    <div class="container mt-5">
+      <header class="text-center page-header-batik">
+        <h1>Kuis: Tanda-tanda Kebesaran Allah (Gerhana)</h1>
+      </header>
 
-    <main>
-      <div class="card">
-        <div class="card-body">
-          <div id="quiz-container"></div>
-          <button id="submit-btn" class="btn btn-primary mt-3">Selesai</button>
-          <div id="results-container" class="mt-4"></div>
+      <main>
+        <div class="card">
+          <div class="card-body">
+            <form id="quiz-form">
+              <!-- Quiz questions will be injected here by JavaScript -->
+            </form>
+            <div id="results-container" class="mt-4"></div>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
+    <!-- Batik Header -->
+    <div class="batik-bottom"></div>
 
-  </div>
-      <!-- Batik Header -->
-  <div class="batik-bottom"></div>
-
-  <script src="js/visual_b_quiz.js"></script>
-  <script>
-    const quizContainer = document.getElementById('quiz-container');
-    const submitButton = document.getElementById('submit-btn');
-    const resultsContainer = document.getElementById('results-container');
-
-    function buildQuiz() {
-      const output = [];
-      quizData.forEach((currentQuestion, questionNumber) => {
-        output.push(
-          `<div class="mb-4">
-            <div class="fw-bold">${questionNumber + 1}. ${currentQuestion.question}</div>
-            <div class="mt-2">
-              <input type="text" class="form-control" name="question${questionNumber}" placeholder="Jawaban Anda">
-            </div>
-            <div class="correction" id="correction-${questionNumber}" style="display: none; color: green; font-weight: bold;"></div>
-          </div>`
-        );
-      });
-      quizContainer.innerHTML = output.join('');
-    }
-
-    function showResults() {
-      let numCorrect = 0;
-      quizData.forEach((currentQuestion, questionNumber) => {
-        const selector = `input[name=question${questionNumber}]`;
-        const userAnswer = (quizContainer.querySelector(selector) || {}).value;
-        const correctionContainer = document.getElementById(`correction-${questionNumber}`);
-        
-        // Simple string comparison, might need to be improved for more complex answers
-        if (userAnswer && userAnswer.toLowerCase().trim() === currentQuestion.answer.toLowerCase().trim()) {
-          numCorrect++;
-          quizContainer.querySelector(selector).style.borderColor = 'green';
-        } else {
-          quizContainer.querySelector(selector).style.borderColor = 'red';
-          correctionContainer.innerHTML = `Jawaban yang benar: ${currentQuestion.answer}`;
-          correctionContainer.style.display = 'block';
-        }
-      });
-
-      resultsContainer.innerHTML = `<div class="alert alert-success">Anda benar ${numCorrect} dari ${quizData.length} soal.</div>`;
-      submitButton.disabled = true;
-    }
-
-    buildQuiz();
-    submitButton.addEventListener('click', showResults);
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <script src="js/quiz-common.js"></script>
+    <script src="js/visual_b_quiz.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

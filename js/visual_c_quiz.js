@@ -1,36 +1,109 @@
-const quizImages = [
-  { img: 'img/batang_kurma.jpg', answer: 'Batang pohon kurma' },
-  { img: 'img/daun_kurma.jpg', answer: 'Daun kurma' },
-  { img: 'img/akar_kurma.jpg', answer: 'Akar pohon kurma' },
-  { img: 'img/buah_kurma.jpg', answer: 'Buah kurma' },
-  { img: 'img/gurun_kurma.jpg', answer: 'Gurun pasir tempat tumbuhnya pohon kurma' }
+const quizData = [
+  {
+    question:
+      "Daun pohon kurma yang tidak gugur sepanjang tahun melambangkan...",
+    answer: "keimanan yang konsisten",
+  },
+  {
+    question: "Akar pohon kurma yang menghujam kuat melambangkan...",
+    answer: "akidah yang kokoh",
+  },
+  {
+    question: "Buah kurma yang manis dan bermanfaat melambangkan...",
+    answer: "akhlak mulia dan amal saleh",
+  },
+  {
+    question: "Seluruh bagian pohon kurma yang berguna melambangkan...",
+    answer: "seorang muslim yang membawa manfaat bagi sekitarnya",
+  },
+  {
+    question: "Kemampuan pohon kurma tumbuh di lahan tandus melambangkan...",
+    answer: "kesabaran dan ketangguhan",
+  },
 ];
 
-const quizContainer = document.getElementById('quiz');
-const submitButton = document.getElementById('submitQuiz');
-const resultContainer = document.getElementById('quizResult');
+const quizForm = document.getElementById("quiz-form");
+const resultsContainer = document.getElementById("results-container");
 
 function buildQuiz() {
-  const output = [];
-  quizImages.forEach((item, index) => {
-    output.push(`
-      <div class="mb-3 text-center">
-        <img src="${item.img}" alt="Tebak gambar" class="img-fluid" style="max-height: 200px;">
-        <input type="text" class="form-control mt-2" id="answer${index}" placeholder="Tebak gambar ini...">
+  let html = "";
+  quizData.forEach((item, index) => {
+    const questionNumber = index + 1;
+    const questionId = `q${questionNumber}`;
+
+    html += `
+      <div class="mb-3">
+        <p>${questionNumber}. ${item.question}</p>
+        <input type="text" class="form-control quiz-input" id="${questionId}">
       </div>
-    `);
+    `;
   });
-  quizContainer.innerHTML = output.join('');
+  html += `<button type="submit" id="submit-btn" class="btn btn-primary" disabled>Selesai</button>`;
+  quizForm.innerHTML = html;
+
+  quizForm.addEventListener("input", checkCompletion);
+  quizForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    showResults();
+  });
+}
+
+function checkCompletion() {
+  const inputs = document.querySelectorAll(".quiz-input");
+  const allFilled = Array.from(inputs).every(
+    (input) => input.value.trim() !== ""
+  );
+  document.getElementById("submit-btn").disabled = !allFilled;
 }
 
 function showResults() {
-  let score = 0;
-  quizImages.forEach((item, index) => {
-    const userAnswer = document.getElementById(`answer${index}`).value.trim();
-    if (userAnswer.toLowerCase() === item.answer.toLowerCase()) score++;
+  let numCorrect = 0;
+  let resultsHtml = "";
+
+  quizData.forEach((currentQuestion, questionNumber) => {
+    const inputId = `q${questionNumber + 1}`;
+    const userAnswer = document.getElementById(inputId).value;
+
+    resultsHtml += `<div class="mb-3">`;
+    resultsHtml += `<p><strong>Pertanyaan:</strong> ${currentQuestion.question}</p>`;
+    resultsHtml += `<p><strong>Jawaban Anda:</strong> ${userAnswer}</p>`;
+
+    if (isAnswerCorrect(userAnswer, currentQuestion.answer)) {
+      numCorrect++;
+      resultsHtml += `<p class="text-success"><strong>Jawaban Benar:</strong> ${currentQuestion.answer}</p>`;
+    } else {
+      resultsHtml += `<p class="text-danger"><strong>Jawaban yang Benar:</strong> ${currentQuestion.answer}</p>`;
+    }
+    resultsHtml += `</div>`;
   });
-  resultContainer.innerHTML = `<p class="alert alert-success">Kamu benar ${score} dari ${quizImages.length}! Hebat!</p>`;
+
+  resultsContainer.innerHTML =
+    `<div class="alert alert-info">Anda benar ${numCorrect} dari ${quizData.length} soal.</div>` +
+    resultsHtml;
+  document.getElementById("submit-btn").disabled = true;
+  // Disable all inputs after submission
+  const inputs = document.querySelectorAll(".quiz-input");
+  inputs.forEach((input) => (input.disabled = true));
 }
 
-buildQuiz();
-submitButton.addEventListener('click', showResults);
+function isAnswerCorrect(userAnswer, correctAnswer) {
+  const user = userAnswer
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s]/gi, "");
+  const correct = correctAnswer
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s]/gi, "");
+
+  // Using includes for flexibility
+  return correct.includes(user) || user.includes(correct);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.QuizCommon && typeof window.QuizCommon.renderQuiz === "function") {
+    window.QuizCommon.renderQuiz(quizData, "quiz-form", "results-container");
+  } else {
+    console.error("QuizCommon not loaded for visual_c_quiz.js");
+  }
+});

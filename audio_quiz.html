@@ -21,8 +21,8 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-        <!-- Batik Header -->
-  <div class="batik-top"></div>
+    <!-- Batik Header -->
+    <div class="batik-top"></div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a href="javascript:history.back()" class="navbar-back-button"
@@ -42,84 +42,19 @@
       <main>
         <div class="card">
           <div class="card-body">
-            <div id="quiz-container"></div>
-            <button id="submit-btn" class="btn btn-primary mt-3">
-              Selesai
-            </button>
-            <div id="results-container" class="mt-4"></div>
+            <div id="quiz-container">
+              <form id="quiz-form"></form>
+              <div id="results-container" class="mt-4"></div>
+            </div>
           </div>
         </div>
       </main>
-
-
     </div>
-        <!-- Batik Header -->
-  <div class="batik-bottom"></div>
+    <!-- Batik Header -->
+    <div class="batik-bottom"></div>
 
+    <script src="js/quiz-common.js"></script>
     <script src="js/audio_quiz.js"></script>
-    <script>
-      const quizContainer = document.getElementById("quiz-container");
-      const submitButton = document.getElementById("submit-btn");
-      const resultsContainer = document.getElementById("results-container");
-
-      function buildQuiz() {
-        const output = [];
-        quizData.forEach((currentQuestion, questionNumber) => {
-          const answers = [];
-          for (letter in currentQuestion.options) {
-            answers.push(
-              `<label class="d-block mb-2">
-              <input type="radio" name="question${questionNumber}" value="${letter}"> 
-              ${letter} : ${currentQuestion.options[letter]}
-            </label>`
-            );
-          }
-          output.push(
-            `<div class="mb-4">
-            <div class="fw-bold">${questionNumber + 1}. ${
-              currentQuestion.question
-            }</div>
-            <div class="mt-2">${answers.join("")}</div>
-            <div class="correction" id="correction-${questionNumber}" style="display: none; color: green; font-weight: bold;"></div>
-          </div>`
-          );
-        });
-        quizContainer.innerHTML = output.join("");
-      }
-
-      function showResults() {
-        const answerContainers = quizContainer.querySelectorAll(".mt-2");
-        let numCorrect = 0;
-
-        quizData.forEach((currentQuestion, questionNumber) => {
-          const answerContainer = answerContainers[questionNumber];
-          const selector = `input[name=question${questionNumber}]:checked`;
-          const userAnswer = (answerContainer.querySelector(selector) || {})
-            .value;
-          const correctionContainer = document.getElementById(
-            `correction-${questionNumber}`
-          );
-
-          if (userAnswer === currentQuestion.answer) {
-            numCorrect++;
-            answerContainer.style.color = "green";
-          } else {
-            answerContainer.style.color = "red";
-            const correctAnswerLetter = currentQuestion.answer;
-            const correctAnswerText =
-              currentQuestion.options[correctAnswerLetter];
-            correctionContainer.innerHTML = `Jawaban yang benar: ${correctAnswerLetter} : ${correctAnswerText}`;
-            correctionContainer.style.display = "block";
-          }
-        });
-
-        resultsContainer.innerHTML = `<div class="alert alert-success">Anda benar ${numCorrect} dari ${quizData.length} soal.</div>`;
-        submitButton.disabled = true;
-      }
-
-      buildQuiz();
-      submitButton.addEventListener("click", showResults);
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
