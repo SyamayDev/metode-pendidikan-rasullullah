@@ -10,7 +10,7 @@ body {
 
 /* Body untuk Halaman Sampul */
 .cover-body {
-  background-image: url("../img/background.jpg");
+  background-image: url("../img/background.webp");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -35,7 +35,7 @@ body {
 
 /* Batik Desain */
 .batik-top, .batik-bottom {
-  background: url("../img/batik-pattern.jpg") repeat-x;
+  background: url("../img/batik-pattern.webp") repeat-x;
   height: 120px;
   width: 100%;
   background-size: auto 100%;
@@ -140,7 +140,7 @@ body {
 
 /* Page Header */
 .page-header-batik {
-  background: url("../img/batik-pattern.jpg") repeat-x;
+  background: url("../img/batik-pattern.webp") repeat-x;
   background-size: auto 100%;
   background-position: center;
   background-color: #8B4513;
@@ -176,7 +176,7 @@ body {
 
 /* Body untuk Halaman Lain */
 .kamus-body {
-  background-image: url("../img/batik-pattern.jpg");
+  background-image: url("../img/batik-pattern.webp");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

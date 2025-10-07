@@ -2,7 +2,7 @@ const articles = [
   {
     id: 1,
     title: "Sa'i dalam Haji dan Umrah",
-    image: "img/sai.jpg",
+    image: "img/sai.webp",
     content: `
       <h2>Sa'i dalam Haji dan Umrah</h2>
       <p><strong>Bidang Ilmu:</strong> Fiqih</p>
@@ -39,7 +39,7 @@ const articles = [
   {
     id: 2,
     title: "Melafalkan Huruf Hijaiyah",
-    image: "img/hijaiyah.jpg",
+    image: "img/hijaiyah.webp",
     content: `
       <h2>Melafalkan Huruf Hijaiyah</h2>
       <p><strong>Bidang Ilmu:</strong> Alqur’an Hadis</p>
@@ -101,7 +101,7 @@ const articles = [
   {
     id: 3,
     title: "Sedekah dan Infak",
-    image: "img/sedekah.jpg",
+    image: "img/sedekah.webp",
     content: `
       <h2>Sedekah dan Infak</h2>
       <p><strong>Bidang Ilmu:</strong> Fiqih</p>
@@ -134,7 +134,7 @@ const articles = [
   {
     id: 4,
     title: "Sujud dalam Shalat",
-    image: "img/sujud.jpg",
+    image: "img/sujud.webp",
     content: `
       <h2>Sujud dalam Shalat</h2>
       <p><strong>Bidang Ilmu:</strong> Fiqih</p>
@@ -161,7 +161,7 @@ const articles = [
   {
     id: 5,
     title: "Iman kepada Qadha dan Qadar",
-    image: "img/qadha-qadar.jpg",
+    image: "img/qadha-qadar.webp",
     content: `
       <h2>Iman kepada Qadha dan Qadar</h2>
       <p><strong>Bidang Ilmu:</strong> Akidah Akhlak</p>
@@ -184,7 +184,7 @@ const articles = [
   {
     id: 6,
     title: "Gerhana Matahari dan Bulan",
-    image: "img/gerhana.jpg",
+    image: "img/gerhana.webp",
     content: `
       <h2>Gerhana Matahari dan Bulan</h2>
       <p><strong>Bidang Ilmu:</strong> Akidah Akhlak</p>
@@ -218,7 +218,7 @@ const articles = [
   {
     id: 7,
     title: "Keutamaan Pohon Kurma",
-    image: "img/pohon-kurma.jpg",
+    image: "img/pohon-kurma.webp",
     content: `
       <h2>Keutamaan Pohon Kurma</h2>
       <p><strong>Bidang Ilmu:</strong> Akidah Akhlak</p>
@@ -252,7 +252,7 @@ const articles = [
   {
     id: 8,
     title: "Surah Ad-Dhuha",
-    image: "img/ad-duha.jpg",
+    image: "img/ad-duha.webp",
     content: `
       <h2>Surah Ad-Dhuha</h2>
       <p><strong>Bidang Ilmu:</strong> Alqur’an Hadis</p>
